@@ -1,3 +1,5 @@
+
+
 #!/usr/bin/python3
 """ empty class Rectangle that defines a rectangle
 """
@@ -10,6 +12,7 @@ class Rectangle:
         self.width = width
         self.height = height
 
+    @property
     def width(self):
         """ width
         """
@@ -29,7 +32,7 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-            self.__width = value
+        self.__width = value
 
     @height.setter
     def height(self, value):
@@ -57,4 +60,4 @@ class Rectangle:
         if self.__width is 0 or self.__height is 0:
             return ""
         return ("\n".join(["".join(["#" for i in range(self.__width)])
-             for j in range(self.__height)]))
+                for j in range(self.__height)]))
