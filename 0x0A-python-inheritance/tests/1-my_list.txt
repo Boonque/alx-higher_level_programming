@@ -1,121 +1,104 @@
-# 7-base_geometry.txt
-# Carlos Barros <1543@holbertonschool.com>
+t for 1-my_list.py
+-------------------------------------------
 
-===========================
-How to Use 7-base_geometry.py
-===========================
+case 0: import
+>>> MyList = __import__('1-my_list').MyList
+>>>
+-------------------------------------------
 
-This module defines an function divides all elements of a matrix ``def integer_validator(self, name, value)``.
+case 1: common case
 
-Usage
-=====
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+>>>
 
-``base_geometry(...)```  validates value
----------------------
+-------------------------------------------
 
-::
+case 2: not defined object
 
-	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-	>>> bg = BaseGeometry()
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list2.print_sorted()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'my_list2' is not defined
+>>>
 
-	>>> bg.area()
-	Traceback (most recent call last):
-	...
-	Exception: area() is not implemented
+-------------------------------------------
 
-::
+case 3: passed a list
 
-	>>> bg.integer_validator('age', '17')
-	Traceback (most recent call last):
-	...
-	TypeError: age must be an integer
+>>> a = [1, 9, 4]
+>>> my_list = MyList(a)
+>>> my_list.print_sorted()
+[1, 4, 9]
+>>>
 
-::
+-------------------------------------------
 
-	>>> bg.integer_validator('age', 17)
-	 
+case 4: empty list
 
-::
+>>> a = []
+>>> my_list = MyList(a)
+>>> my_list.print_sorted()
+[]
+>>>
 
-	>>> bg.integer_validator('name', float('inf'))
-	Traceback (most recent call last):
-	...
-	TypeError: name must be an integer
+-------------------------------------------
 
-::
+case 5: unique number
 
-	>>> bg.integer_validator('age', -4)
-	Traceback (most recent call last):
-	...
-	ValueError: age must be greater than 0
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.print_sorted()
+[1]
+>>> print(my_list)
+[1]
+>>>
 
-::
+-------------------------------------------
 
-	>>> bg.integer_validator('age', 0)
-	Traceback (most recent call last):
-	...
-	ValueError: age must be greater than 0
+case 6: same number
 
-::
+>>> my_list2 = MyList()
+>>> my_list2.append(1)
+>>> my_list2.append(1)
+>>> my_list2.append(1)
+>>> my_list2.append(1)
+>>> my_list2.print_sorted()
+[1, 1, 1, 1]
+>>>
 
-	>>> bg.integer_validator()
-	Traceback (most recent call last):
-	...
-	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+-------------------------------------------
 
-::
+case 7: parent object
+>>> my_list = [1, 2, 3]
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'list' object has no attribute 'print_sorted'
+>>>
 
-	>>> bg.integer_validator('name')
-	Traceback (most recent call last):
-	...
-	TypeError: integer_validator() missing 1 required positional argument: 'value'
+-------------------------------------------
 
-::
+case 8: negative numbers
 
-	>>> bg.area(12)
-	Traceback (most recent call last):
-	...
-	TypeError: area() takes 1 positional argument but 2 were given
-
-	>>> bg.integer_validator('name', 12, 'hola')
-	Traceback (most recent call last):
-	...
-	TypeError: integer_validator() takes 3 positional arguments but 4 were given
-
-::
-
-	>>> bg.integer_validator('name', 12.5)
-	Traceback (most recent call last):
-	...
-	TypeError: name must be an integer
-
-::
-
-	>>> bg.integer_validator('name', True)
-	Traceback (most recent call last):
-	...
-	TypeError: name must be an integer
-
-::
-
-	>>> doc = BaseGeometry = __import__('7-base_geometry').__doc__
-	>>> len(doc) > 1
-	True
-
-:: 
-
-	>>> doc = BaseGeometry = __import__('7-base_geometry').BaseGeometry.__doc__
-	>>> len(doc) > 1
-	True
-
-::
-
-	>>> doc = BaseGeometry = __import__('7-base_geometry').BaseGeometry.area.__doc__
-	>>> len(doc) > 1
-	True
-
-::
-
-	>>> doc = BaseGeometry = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
-	>>> len(doc) > 1
-	True
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList()
+>>> my_list.append(5)
+>>> my_list.append(1)
+>>> my_list.append(-1)
+>>> my_list.append(51)
+>>> my_list.append(-5)
+>>> my_list.print_sorted()
+[-5, -1, 1, 5, 51]
+>>>
